@@ -10,7 +10,7 @@ void setup(){
   size(480,640);
   frameRate(25);
   String url = "http://x2.i-dat.org/archos/archive.rss?source=.WindSpeed";
-//  XMLElement xml = new XMLElement(this, url);
+  xml = new XMLElement(this, url);
   windVal = xml.getChildren("channel/item/description");
 }
 
