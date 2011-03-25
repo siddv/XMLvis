@@ -37,12 +37,12 @@ void draw(){
     ySize = int(windValue[i].getContent());
     ellipse(xValue,yValue,xSize,ySize);
     fill(255);
-  myCar1.move();
-  myCar1.display();
-  myCar2.move();
-  myCar2.display();
-  myCar3.move();
-  myCar3.display();
+    myCar1.move();
+    myCar1.display();
+    myCar2.move();
+    myCar2.display();
+    myCar3.move();
+    myCar3.display();
     }
 }
   
