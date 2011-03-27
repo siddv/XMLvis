@@ -1,5 +1,5 @@
 import processing.xml.*;
-XMLElement xml;
+XMLElement windXml;
 XMLElement[] windTitle;
 XMLElement[] windDate;
 XMLElement[] windValue;
@@ -14,10 +14,10 @@ void setup(){
   size(480,640);
   frameRate(25);
   String feedUrl = "http://x2.i-dat.org/archos/archive.rss?source=.WindSpeed";
-  XMLElement xml = new XMLElement(this, feedUrl);
-  windTitle = xml.getChildren("channel/item/title");
-  windDate = xml.getChildren("channel/item/pubDate");
-  windValue = xml.getChildren("channel/item/description");
+  XMLElement windXml = new XMLElement(this, feedUrl);
+  windTitle = windXml.getChildren("channel/item/title");
+  windDate = windXml.getChildren("channel/item/pubDate");
+  windValue = windXml.getChildren("channel/item/description");
 
 }
 
