@@ -3,6 +3,11 @@ XMLElement windXml;
 XMLElement[] windTitle;
 XMLElement[] windDate;
 XMLElement[] windValue;
+String windUrl;
+XMLElement tempXml;
+XMLElement[] tempTitle;
+XMLElement[] tempDate;
+XMLElement[] tempValue;
 float xValue = 0;
 float yValue = 0;
 float xSize = 0;
@@ -13,11 +18,16 @@ void setup(){
   background(000);
   size(480,640);
   frameRate(25);
-  String feedUrl = "http://x2.i-dat.org/archos/archive.rss?source=.WindSpeed";
-  XMLElement windXml = new XMLElement(this, feedUrl);
+  windUrl = "http://x2.i-dat.org/archos/archive.rss?source=.WindSpeed";
+  windXml = new XMLElement(this, windUrl);
   windTitle = windXml.getChildren("channel/item/title");
   windDate = windXml.getChildren("channel/item/pubDate");
   windValue = windXml.getChildren("channel/item/description");
+  tempUrl = "http://x2.i-dat.org/archos/archive.rss?source=.WindSpeed";
+  tempXml = new XMLElement(this, tempUrl);
+  tempTitle = windXml.getChildren("channel/item/title");
+  tempDate = windXml.getChildren("channel/item/pubDate");
+  tempValue = windXml.getChildren("channel/item/description");
 
 }
 
