@@ -76,15 +76,13 @@ void draw(){
   for(int i = 0; i < tempValue.length; i++) {
     println(windValue[i].getContent());
     println(tempValue[i].getContent());
-    int xSpeed2 = 4;
-    int ySpeed2 = 2;
     moveyoupos();
     moveyoupos2();
     moveyoupos3();
     prexSize = int(tempValue[i].getContent());
     preySize = int(tempValue[i].getContent());
     xSize = map(prexSize, 5, 30, 10, 100);
-    ySize = map(preySize, -10, 50, 10, 100);
+    ySize = map(preySize, 5, 30, 10, 100);
     are = map(preySize,-10,50,0,255);
     gee = 127;
     bee = 127;
@@ -92,10 +90,10 @@ void draw(){
     ellipse(xValue, yValue, prexSize, preySize); 
     fill(are, gee, bee);
 //    noStroke();
-    ellipse(xValue2, yValue2, ySize, ySize); 
+    ellipse(xValue2, yValue2, xSize, ySize); 
     fill(bee, gee, are);
-    noStroke();
-    ellipse(xValue3, yValue3, ySize, ySize); 
+//    noStroke();
+    ellipse(xValue3, yValue3, xSize, ySize); 
     fill(gee, colourWind, gee);
   }
 }    
