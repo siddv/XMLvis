@@ -9,16 +9,31 @@ XMLElement[] tempTitle;
 XMLElement[] tempDate;
 XMLElement[] tempValue;
 String tempUrl;
-float xValue = 0;
-float yValue = 0;
-float xSize = 0;
-float ySize = 0;
+int xValue;
+int yValue;
+float xSize;
+float ySize;
 float are;
 float gee;
 float bee;
 float colourWind;
-float xSpeed;
-float ySpeed;
+int xSpeed;
+int ySpeed;
+float prexSize;
+float preySize;
+
+void moveyoupos(){
+    xSpeed = int(colourWind);
+    ySpeed = int(colourWind);
+    xValue += xSpeed;
+    yValue += ySpeed;
+    if(xValue < 0 || xValue > width){
+       xSpeed *= - 1;
+    }
+    if(yValue < 0 || yValue > height){
+       ySpeed *= - 1;
+    }
+}
 
 void setup(){
   background(000);
@@ -38,27 +53,20 @@ void setup(){
 }
 
 void draw(){
- background(000);
+// background(000);
   for(int i = 0; i < tempTitle.length; i++) {
     println(windValue[i].getContent());
     println(tempValue[i].getContent());
 //    xValpre = int(tempValue[i].getContent());
-    xSpeed = 1;
-    ySpeed = 1;
-    xValue += xSpeed;
-    yValue += ySpeed;
-    if(xValue > width || xValue < 0){
-       xSpeed *= - 1;
-    }
-    if(yValue > width || yValue < 0){
-       ySpeed *= - 1;
-    }
-    xSize = int(tempValue[i].getContent());
-    ySize = int(tempValue[i].getContent());
+    prexSize = int(tempValue[i].getContent());
+    preySize = int(tempValue[i].getContent());
+    xSize = map(prexSize, -10, 50, 10, 100);
+    ySize = map(preySize, -10, 50, 10, 100);
+    moveyoupos();
     colourWind = int(windValue[i].getContent());
     are = map(xSize,0,50,0,255);
-    gee = random(255);
-    bee = map(colourWind,0,10,0,255);
+    gee = 127;
+    bee = 127;
     ellipse(xValue,yValue,xSize,ySize);
     fill(are,gee,bee);
   }
