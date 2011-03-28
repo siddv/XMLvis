@@ -41,13 +41,13 @@ void setup(){
   frameRate(25);
   windUrl = "http://x2.i-dat.org/archos/archive.rss?source=.WindSpeed";
   windXml = new XMLElement(this, windUrl);
-  windTitle = windXml.getChildren("channel/item/title");
-  windDate = windXml.getChildren("channel/item/pubDate");
+//  windTitle = windXml.getChildren("channel/item/title");
+//  windDate = windXml.getChildren("channel/item/pubDate");
   windValue = windXml.getChildren("channel/item/description");
   tempUrl = "http://x2.i-dat.org/archos/archive.rss?source=.Temp_AtriumA_gnd";
   tempXml = new XMLElement(this, tempUrl);
-  tempTitle = tempXml.getChildren("channel/item/title");
-  tempDate = tempXml.getChildren("channel/item/pubDate");
+//  tempTitle = tempXml.getChildren("channel/item/title");
+//  tempDate = tempXml.getChildren("channel/item/pubDate");
   tempValue = tempXml.getChildren("channel/item/description");
 
 }
