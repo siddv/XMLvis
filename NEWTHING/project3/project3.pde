@@ -9,16 +9,20 @@ int xValue;
 int yValue;
 int xValue2;
 int yValue2;
+int xValue3;
+int yValue3;
 float xSize;
 float ySize;
 float are;
 float gee;
 float bee;
 float colourWind;
-int xSpeed = 2;
-int ySpeed = 2;
-int xSpeed2 = 4;
+int xSpeed = 1;
+int ySpeed = 1;
+int xSpeed2 = 1;
 int ySpeed2 = 2;
+int xSpeed3 = 2;
+int ySpeed3 = 1;
 float prexSize;
 float preySize;
 
@@ -56,23 +60,42 @@ void moveyoupos2(){
     }
 }
 
+void moveyoupos3(){
+    xValue3 += xSpeed3;
+    yValue3 += ySpeed3;
+    if(xValue3 < 0 || xValue3 > width){
+       xSpeed3 *= - 1;
+    }
+    if(yValue3 < 0 || yValue3 > height){
+       ySpeed3 *= - 1;
+    }
+}
+
 void draw(){
 //  background(000);
   for(int i = 0; i < tempValue.length; i++) {
     println(windValue[i].getContent());
     println(tempValue[i].getContent());
+    int xSpeed2 = 4;
+    int ySpeed2 = 2;
     moveyoupos();
     moveyoupos2();
+    moveyoupos3();
     prexSize = int(tempValue[i].getContent());
     preySize = int(tempValue[i].getContent());
     xSize = map(prexSize, 5, 30, 10, 100);
     ySize = map(preySize, -10, 50, 10, 100);
-    are = map(xSize,-10,50,0,255);
+    are = map(preySize,-10,50,0,255);
     gee = 127;
     bee = 127;
-    ellipse(xValue, yValue, xSize, ySize); 
+    float colourWind = int(windValue[i].getContent());
+    ellipse(xValue, yValue, prexSize, preySize); 
     fill(are, gee, bee);
-    ellipse(xValue2, yValue2, xSize, ySize); 
+//    noStroke();
+    ellipse(xValue2, yValue2, ySize, ySize); 
     fill(bee, gee, are);
+    noStroke();
+    ellipse(xValue3, yValue3, ySize, ySize); 
+    fill(gee, colourWind, gee);
   }
 }    
