@@ -17,11 +17,13 @@ float are;
 float gee;
 float bee;
 float colourWind;
+float xSpeed;
+float ySpeed;
 
 void setup(){
   background(000);
   size(480,640);
-  frameRate(10);
+  frameRate(25);
   windUrl = "http://x2.i-dat.org/archos/archive.rss?source=.WindSpeed";
   windXml = new XMLElement(this, windUrl);
   windTitle = windXml.getChildren("channel/item/title");
@@ -41,8 +43,16 @@ void draw(){
     println(windValue[i].getContent());
     println(tempValue[i].getContent());
 //    xValpre = int(tempValue[i].getContent());
-    xValue = random(height);
-    yValue = random(height);
+    xSpeed = 1;
+    ySpeed = 1;
+    xValue += xSpeed;
+    yValue += ySpeed;
+    if(xValue > width || xValue < 0){
+       xSpeed *= - 1;
+    }
+    if(yValue > width || yValue < 0){
+       ySpeed *= - 1;
+    }
     xSize = int(tempValue[i].getContent());
     ySize = int(tempValue[i].getContent());
     colourWind = int(windValue[i].getContent());
