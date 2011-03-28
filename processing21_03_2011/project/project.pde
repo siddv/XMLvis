@@ -66,7 +66,6 @@ void draw(){
     preySize = int(tempValue[i].getContent());
     xSize = map(prexSize, -10, 50, 10, 100);
     ySize = map(preySize, -10, 50, 10, 100);
-    speedsetup();
     moveyoupos();
     colourWind = int(windValue[i].getContent());
     are = map(xSize,-10,50,0,255);

@@ -9,12 +9,12 @@ XMLElement[] tempTitle;
 XMLElement[] tempDate;
 XMLElement[] tempValue;
 String tempUrl;
-float xValue = 0;
-float yValue = 0;
-float xSize = 0;
-float ySize = 0;
-float xSpeed = 0;
-float ySpeed = 0;
+float xValue = random(width);
+float yValue = random(height);
+float xSize;
+float ySize;
+float xSpeed = 1;
+float ySpeed = 1;
 float are;
 float gee;
 float bee;
@@ -34,7 +34,7 @@ void movement(){
 void setup(){
   background(000);
   size(480,640);
-  frameRate(10);
+  frameRate(25);
   windUrl = "http://x2.i-dat.org/archos/archive.rss?source=.WindSpeed";
   windXml = new XMLElement(this, windUrl);
   windTitle = windXml.getChildren("channel/item/title");
@@ -54,14 +54,13 @@ void draw(){
     println(windValue[i].getContent());
     println(tempValue[i].getContent());
 // xValpre = int(tempValue[i].getContent());
-    xValue = random(height);
-    yValue = random(height);
     xSize = int(tempValue[i].getContent());
     ySize = int(tempValue[i].getContent());
     colourWind = int(windValue[i].getContent());
     are = map(xSize,0,50,0,255);
     gee = random(255);
     bee = map(colourWind,0,10,0,255);
+    movement();
     ellipse(xValue,yValue,xSize,ySize);
     fill(are,gee,bee);
   }

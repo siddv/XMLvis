@@ -72,7 +72,7 @@ void moveyoupos3(){
 }
 
 void draw(){
-//  background(000);
+  background(000);
   for(int i = 0; i < tempValue.length; i++) {
     println(windValue[i].getContent());
     println(tempValue[i].getContent());
