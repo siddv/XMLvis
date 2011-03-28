@@ -8,11 +8,14 @@ XMLElement tempXml;
 XMLElement[] tempTitle;
 XMLElement[] tempDate;
 XMLElement[] tempValue;
+String tempUrl;
 float xValue = 0;
 float yValue = 0;
 float xSize = 0;
 float ySize = 0;
-
+float are;
+float gee;
+float bee;
 
 void setup(){
   background(000);
@@ -23,21 +26,25 @@ void setup(){
   windTitle = windXml.getChildren("channel/item/title");
   windDate = windXml.getChildren("channel/item/pubDate");
   windValue = windXml.getChildren("channel/item/description");
-  tempUrl = "http://x2.i-dat.org/archos/archive.rss?source=.WindSpeed";
+  tempUrl = "http://x2.i-dat.org/archos/archive.rss?source=.Temp_AtriumA_gnd";
   tempXml = new XMLElement(this, tempUrl);
-  tempTitle = windXml.getChildren("channel/item/title");
-  tempDate = windXml.getChildren("channel/item/pubDate");
-  tempValue = windXml.getChildren("channel/item/description");
+  tempTitle = tempXml.getChildren("channel/item/title");
+  tempDate = tempXml.getChildren("channel/item/pubDate");
+  tempValue = tempXml.getChildren("channel/item/description");
 
 }
 
 void draw(){
-  for(int i = 0; i<windValue.length; i++) {
+// background(000);
+  for(int i = 0; i < tempTitle.length; i++) {
     println(windValue[i].getContent());
-    xValue = random(width);
+    println(tempValue[i].getContent());
+//    xValpre = int(tempValue[i].getContent());
+    xValue = random(height);
     yValue = random(height);
-    xSize = int(windValue[i].getContent());
-    ySize = int(windValue[i].getContent());
+    xSize = int(tempValue[i].getContent());
+    ySize = int(tempValue[i].getContent());
+    are = map(xSize,0,width,0,255);
     ellipse(xValue,yValue,xSize,ySize);
     fill(255);
   }
