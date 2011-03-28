@@ -54,7 +54,7 @@ void setup(){
 
 void draw(){
 // background(000);
-  for(int i = 0; i < tempTitle.length; i++) {
+  for(int i = 0; i < tempValue.length; i++) {
     println(windValue[i].getContent());
     println(tempValue[i].getContent());
 //    xValpre = int(tempValue[i].getContent());
@@ -64,10 +64,11 @@ void draw(){
     ySize = map(preySize, -10, 50, 10, 100);
     moveyoupos();
     colourWind = int(windValue[i].getContent());
-    are = map(xSize,0,50,0,255);
+    are = map(xSize,-10,50,0,255);
     gee = 127;
     bee = 127;
     ellipse(xValue,yValue,xSize,ySize);
     fill(are,gee,bee);
+    noStroke();
   }
 }
