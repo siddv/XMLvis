@@ -1,31 +1,30 @@
 import processing.video.*;
 
-Movie myMovie;
+Movie[] myMovie = new Movie[2];
 
 void setup()
 {
-  size(640,480,P2D);
-  myMovie = new Movie(this,"andrine.avi");
-  myMovie.play();
+  size(1280,528,P2D);
+  
+  myMovie[0] = new Movie(this,"misample.avi");
+  myMovie[1] = new Movie(this,"misample2.avi");
+
 }
 
-void draw()
-{
-  image(myMovie,0,0,640,480);
+void draw(){
+  image(myMovie[0],0,0,1280,528);
 }
 
-void keyPressed()
-{
-  if(key == 'h') {
-    myMovie.jump(28);
-  }
-  if(key == 's') {
-    myMovie.jump(36);
-  }
+void keyPressed(){
+  
+  
   if(key == 'a') {
-    myMovie.jump(48);
+    myMovie[0].stop();
+    myMovie[0].play();
   }
-  if(key == 'l') {
-    myMovie.jump(61);
-  }
+}
+
+void movieEvent (Movie m)
+{
+  m.read();
 }
