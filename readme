@@ -20,7 +20,14 @@ void keyPressed(){
   
   if(key == 'a') {
     myMovie[0].stop();
+    myMovie[1].stop();
     myMovie[0].play();
+  }
+  
+  if(key == 's') {
+    myMovie[0].stop();
+    myMovie[1].stop();
+    myMovie[1].play();
   }
 }
 
